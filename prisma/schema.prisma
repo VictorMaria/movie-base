@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Movie {
+  id           String    @unique
+  title        String    @unique
+  releaseDate  DateTime
+  openingCrawl String
+  commentCount Int
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @default(now())
+  studio       String
+  Comments     Comment[]
+}
+
+model Comment {
+  id        String   @unique
+  content   String   @unique
+  movieId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  movie     Movie    @relation(fields: [movieId], references: [id])
+}
+
+model Character {
+  id        String   @unique
+  name      String
+  gender    String
+  height    Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
