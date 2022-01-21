@@ -7,3 +7,5 @@ dist
 .DS_Store
 
 package-lock.json
+
+prisma/seed.js
