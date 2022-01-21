@@ -9,9 +9,10 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  try {
     res.status(200).json({ message: 'May the Force be with you' });
-  } catch (error) {
-    console.log(error)
-  }
 });
+
+
+const PORT = process.env.PORT || 2000;
+
+app.listen(PORT, () => console.log(`The Force is on port ${PORT}`));
