@@ -14,8 +14,8 @@ const commentValidator = {
             .isEmpty({ ignore_whitespace: true })
             .withMessage('content is required')
             .trim()
-            .isLength({ min: 2, max: 250 })
-            .withMessage('content must be between 2 and 250 characters'),
+            .isLength({ min: 2, max: 500 })
+            .withMessage('content must be between 2 and 500 characters'),
         check('ipAddress')
             .not()
             .isEmpty({ ignore_whitespace: true })

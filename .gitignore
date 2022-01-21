@@ -9,3 +9,5 @@ dist
 package-lock.json
 
 prisma/seed.js
+
+magic.js

@@ -1,5 +1,5 @@
 import { PrismaClient, Prisma } from '@prisma/client';
-const { v4: uuidv4 } = require('uuid');
+import { v4 as uuidv4 } from 'uuid';
 
 const prisma = new PrismaClient();
 
@@ -13,6 +13,17 @@ export const add = async (details) => {
             ipAddress,
         }
     });
+
+    await prisma.movie.update({
+        where: {
+          id: movieId,
+        },
+        data: {
+            commentCount: {
+                increment: 1,
+              },
+        },
+      })
 
     return {
         status: 'success',
