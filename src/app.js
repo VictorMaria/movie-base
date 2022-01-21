@@ -9,5 +9,9 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  res.status(200).json({ message: 'May the Force be with you' });
+  try {
+    res.status(200).json({ message: 'May the Force be with you' });
+  } catch (error) {
+    console.log(error)
+  }
 });
