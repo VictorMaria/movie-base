@@ -6,7 +6,7 @@ const { successResponse, errorResponse } = responseHandler;
 export const add = async (req, res) => {
     try {
         const { data, message } = await commentService.add(req.body);
-        successResponse(res, 200, data, message);
+        successResponse(res, 201, data, message);
     } catch (error) {
        return errorResponse(res, 500, 'Ooops, seems Darth Vader broke something');
     }
