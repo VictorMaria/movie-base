@@ -3,6 +3,7 @@ export const characterSelectionOpitions = (req, res, next) => {
 
     const choices = {
         select: {
+            id: true,
             name: true,
             height: true,
             gender: true,
