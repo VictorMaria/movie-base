@@ -30,3 +30,29 @@ export const add = async (details) => {
         data: comment,
     }
 };
+
+export const findMany = async () => {
+    const comments = await prisma.comment.findMany({
+        select: {
+            id: true,
+            content: true,
+            ipAddress: true,
+            createdAt: true,
+            movieId: true,
+          },
+          orderBy: {
+            createdAt: "desc"
+          }
+      });
+
+      return {
+          status: 'success',
+          message: 'Comments fetched successfully',
+          data: {
+              meta: {
+                  count: comments.length
+                },
+              comments }
+        };
+};
+

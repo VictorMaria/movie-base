@@ -14,4 +14,9 @@ Router.post(
   commentController.add,
 );
 
+Router.get(
+  '/comments',
+  commentController.findMany,
+);
+
 export default Router;

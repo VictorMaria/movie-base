@@ -8,6 +8,7 @@ export const findOne = async (movieId) => {
           id: movieId,
         },
         select: {
+          id: true,
           title: true,
           openingCrawl: true,
           commentCount: true,
@@ -30,6 +31,7 @@ export const findOne = async (movieId) => {
 export const findMany = async () => {
     const movies = await prisma.movie.findMany({
         select: {
+            id: true,
             title: true,
             openingCrawl: true,
             commentCount: true,
@@ -43,6 +45,7 @@ export const findMany = async () => {
 
       return {
           status: 'success',
+          message: 'movies fetched successfully',
           data: {
               meta: {
                   count: movies.length
